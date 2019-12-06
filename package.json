@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "start": "node index.js"
   },
   "author": "Magesh",
   "license": "ISC",
   "dependencies": {
+    "mocha": "^6.2.2",
     "mongodb": "^3.3.5",
     "react-router": "^5.1.2",
     "restify": "^8.5.0",

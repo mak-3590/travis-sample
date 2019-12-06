@@ -1,0 +1,4 @@
+sayhello:
+    script:
+      - echo "Hello world"
+      

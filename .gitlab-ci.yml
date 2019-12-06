@@ -1,5 +1,20 @@
+image: node:latest
+
 stages:
+   - build
    - test
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
    
 jobTesting:
    stage: test # This tag tells gitlab to run this job only for test stage

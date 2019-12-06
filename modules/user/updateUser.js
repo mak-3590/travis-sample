@@ -12,7 +12,7 @@ async function updateUser(req, res, next) {
 
      let data = req.body || {};
 
-     console.log(data);
+     await db.collection('users').updateOne({user_id: user_id})
 
      res.send("ok");
 

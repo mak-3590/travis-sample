@@ -1,4 +1,22 @@
-sayhello:
-    script:
-      - echo "Hello world"
-      - echo "hello Magesh"
+stages:
+   - clean
+   - build
+   - test
+   - deploy
+#Lets define a job with for every stage.
+jobCleaning:
+   stage: clean # This tag tells gitlab to run this job only for clean stage
+   script:
+      - echo "Cleaning the code"
+jobBuilding:
+   stage: build # This tag tells gitlab to run this job only for build stage
+   script:
+      - echo "Building the code"
+jobTesting:
+   stage: test # This tag tells gitlab to run this job only for test stage
+   script:
+      - echo "Testing the code"
+jobDeploying:
+   stage: deploy # This tag tells gitlab to run this job only for deploy stage
+   script:
+      - echo "Deploying the code"

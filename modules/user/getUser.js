@@ -16,6 +16,7 @@ async function getUser(req, res, next) {
 
 	}catch(err){
 
+		console.log(err);
 		res.send({"error":true});
 
 	}

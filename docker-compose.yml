@@ -1,0 +1,16 @@
+version: "2"
+services:
+  mongo:
+    image: mongo
+    container_name: mongoDB
+    volumes:
+      - /data/mongodb/db:/data/db
+    ports:
+      - "27017:27017"
+  web:
+    image: mahesh3590/node-restify
+    ports:
+      - "8088:8088"
+    links:
+      - mongo
+ 

@@ -5,13 +5,29 @@ branches:
   - master
 node_js: 
   - "stable"  
-services: mongodb  
-cache:  
-  directories:
-    - "node_modules"
-install:
-  - npm install
+services: 
+  - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.4.2
+
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
 before_script:
-  - mongo test --eval 'db.users.insertOne({name:"Magesh",user_id:1,email_id:"mageshchandru35@gmail.com"});'
-script:
-  - npm test 
+  - sudo docker-compose update
+
+jobs:
+  include:
+    - stage: "Test"
+      script:
+        - echo "Running test"
+        - npm test
+

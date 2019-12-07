@@ -15,4 +15,3 @@ before_script:
   - mongo test --eval 'db.users.insertOne({name:"Magesh",user_id:1,email_id:"mageshchandru35@gmail.com"});'
 script:
   - echo "Testing"
-  - npm test 

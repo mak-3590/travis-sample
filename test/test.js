@@ -17,7 +17,7 @@ describe("Server!", () => {
   it("welcomes user to the api", done => {
     chai
       .request(app)
-      .get("http://35.238.56.223:8088/v1/user/1")
+      .get("/v1/user/1")
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body.user_id).to.equals(1);

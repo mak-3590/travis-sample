@@ -1,4 +1,15 @@
+sudo: required
 language: node_js
+branches:
+  only:
+  - master
 node_js: 
   - "stable"  
-script: gulp travis
+services: mongodb  
+cache:  
+  directories:
+    - "node_modules"
+install:
+  - npm install
+script:
+  - npm test 

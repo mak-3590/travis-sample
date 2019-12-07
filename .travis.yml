@@ -13,9 +13,5 @@ install:
   - npm install
 before_script:
   - mongo test --eval 'db.users.insertOne({name:"Magesh",user_id:1,email_id:"mageshchandru35@gmail.com"});'
-jobs:
-  include:
-    - stage: "Test"
-      script:
-        - echo "Running test"
-        - npm test
+script:
+  - npm test 

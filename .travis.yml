@@ -10,20 +10,12 @@ cache:
   directories:
     - "node_modules"
 install:
-  - npm install
+  - npm install firebase-tools -g
+  - cd functions && npm install
+
 before_script:
   - mongo test --eval 'db.users.insertOne({name:"Magesh",user_id:1,email_id:"mageshchandru35@gmail.com"});'
 
 script:
-  - echo "Testing"
-  #- npm test
-  #- echo "Testing done"
-
-deploy:
-  provider: firebase
-  token:
-    secure: "$FIREBASE_TOKEN"
-
-after_deploy:
-  script:
-    - echo "Deployment Done"
+  - echo "Deployment"
+  - firebase deploy --only hosting,functions --token  "$FIREBASE_TOKEN"

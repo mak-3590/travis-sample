@@ -10,8 +10,6 @@
   "author": "Magesh",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
     "mocha": "^6.2.2",
     "mongodb": "^3.3.5",
     "react-router": "^5.1.2",

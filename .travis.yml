@@ -18,3 +18,12 @@ script:
   - echo "Testing"
   - npm test
   - echo "Testing done"
+
+deploy:
+  provider: firebase
+  token:
+    secure: "$FIREBASE_TOKEN"
+
+after_deploy:
+  script:
+    - echo "Deployment Done"

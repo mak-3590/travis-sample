@@ -16,8 +16,8 @@ before_script:
 
 script:
   - echo "Testing"
-  - npm test
-  - echo "Testing done"
+  #- npm test
+  #- echo "Testing done"
 
 deploy:
   provider: firebase

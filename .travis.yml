@@ -20,7 +20,7 @@ before_script:
 
 script:
   - echo "Test Started"
-  - npm test
+  - npm test --exit
   - echo "Test Ended"
 
 deploy:

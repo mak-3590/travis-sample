@@ -19,5 +19,16 @@ before_script:
   - mongo test --eval 'db.users.insertOne({name:"Magesh",user_id:1,email_id:"mageshchandru35@gmail.com"});'
 
 script:
-  - echo "Deployment"
-  - firebase deploy --only hosting,functions --token  "$FIREBASE_TOKEN"
+  - echo "Test Started"
+  - npm test
+  - echo "Test Ended"
+
+deploy:
+  - provider: codedeploy
+    revision_type: github
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
+    application: "myTestApp"
+    deployment_group: "myTestAppGroup"
+    commit_id: "63985a86f0c883a6b04af9bf1366db090f66149b"
+    region: "us-east-1"

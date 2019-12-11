@@ -21,6 +21,7 @@ before_script:
 script:
   - echo "Test Started"
   - echo "Test Ended"
+  - echo TRAVIS_COMMIT
 
 deploy:
   - provider: codedeploy

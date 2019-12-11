@@ -29,5 +29,5 @@ deploy:
     secret_access_key: "$AWS_SECRET_KEY"
     application: "myTestApp"
     deployment_group: "myTestAppGroup"
-    commit_id: "63985a86f0c883a6b04af9bf1366db090f66149b"
+    commit_id: TRAVIS_COMMIT
     region: "us-east-1"

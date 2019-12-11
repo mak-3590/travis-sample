@@ -21,7 +21,7 @@ before_script:
 script:
   - echo "Test Started"
   - echo "Test Ended"
-  - echo TRAVIS_COMMIT
+  - echo "$TRAVIS_COMMIT"
 
 deploy:
   - provider: codedeploy
@@ -30,5 +30,5 @@ deploy:
     secret_access_key: "$AWS_SECRET_KEY"
     application: "myTestApp"
     deployment_group: "myTestAppGroup"
-    commit_id: TRAVIS_COMMIT
+    commit_id: "$TRAVIS_COMMIT"
     region: "us-east-1"
